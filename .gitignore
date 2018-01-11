@@ -1,2 +1,33 @@
-# Created by .ignore support plugin (hsz.mobi)
+/# Created by .ignore support plugin (hsz.mobi)
+
+# IDE
+.idea
+*.iml
+
+# dependencies
 /node_modules/
+/bower_components/
+
+# compiled output
+app/**/*.js
+app/**/*.map
+/dist
+/tmp
+/out-tsc
+
+# misc
+/.sass-cache
+/connect.lock
+/coverage
+/libpeerconnection.log
+npm-debug.log
+testem.log
+/typings
+
+# e2e
+/e2e/*.js
+/e2e/*.map
+
+# System Files
+.DS_Store
+Thumbs.db
