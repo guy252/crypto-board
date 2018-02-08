@@ -19,21 +19,21 @@ export class SearchFilterComponent implements OnInit {
     mySettings: IMultiSelectSettings = {
         enableSearch: true,
         checkedStyle: 'fontawesome',
-        buttonClasses: 'btn btn-default btn-block',
+        buttonClasses: 'form-control btn btn-primary fiat-currencies-select-box',
         dynamicTitleMaxItems: 5,
         displayAllSelectedText: true
     };
     // Text configuration for the multiselect plugin
     myTexts: IMultiSelectTexts = {
-        checkAll: 'Select all',
-        uncheckAll: 'Unselect all',
-        checked: 'item selected',
-        checkedPlural: 'items selected',
-        searchPlaceholder: 'Find',
-        searchEmptyResult: 'Nothing found...',
+        checkAll: 'Select All',
+        uncheckAll: 'Unselect All',
+        checked: 'Item Selected',
+        checkedPlural: 'Items Selected',
+        searchPlaceholder: 'Search',
+        searchEmptyResult: 'NoResults',
         searchNoRenderText: 'Type in search box to see results...',
-        defaultTitle: 'Filter cryptos',
-        allSelected: 'All selected',
+        defaultTitle: 'Filter Cryptos',
+        allSelected: 'All Selected',
     };
 
     constructor(private appService: AppService) {

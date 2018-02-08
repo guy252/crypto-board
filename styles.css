@@ -1,0 +1,66 @@
+.btn {
+    border-radius: 0px;
+}
+
+.btn-success {
+    background-color: #a09474;
+    border-color: #a09474;
+}
+
+.btn-success:hover,
+.btn-success:disabled {
+    background-color: #aca286;
+    border-color: #aca286;
+}
+
+.btn-xl {
+    padding: 1.2rem 3rem;
+}
+
+.btn-primary {
+    background-color: #34434b;
+    border-color: #34434b;
+}
+
+.btn-primary:hover,
+.btn-primary:disabled,
+.btn-primary:active {
+    background-color: #3f515a;
+    border-color: #3f515a;
+}
+
+.form-control {
+    border-radius: 0;
+    font-weight: bolder;
+}
+
+.fiat-currencies-select-box,
+.crypto-currencies-select-box {
+    text-transform: uppercase;
+    border: none !important;
+    height: 3rem !important;
+    -webkit-appearance: none;
+}
+
+.fiat-currencies-select-box {
+    min-width: 15rem;
+
+}
+
+.crypto-currencies-select-box {
+    min-width: 15rem;
+}
+
+ss-multiselect-dropdown .dropdown-item a {
+    font-size: 1.1rem;
+    color: #3f515a;
+}
+
+.dropdown-item.active, .dropdown-item:active {
+    color: #3f515a;
+    background-color: white;
+}
+
+ss-multiselect-dropdown .dropdown-item i.fa.fa-check {
+    margin-left: -0.5rem;
+}

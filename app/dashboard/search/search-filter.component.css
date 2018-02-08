@@ -1,0 +1,13 @@
+#selectedCurrency{
+    padding: 0;
+}
+
+#crypto-list-form-group{
+    padding-left: 0;
+    margin-bottom: 0;
+}
+
+#cryptocurrencies{
+    margin: 1rem 0 1.5rem 0;
+    color: #ccc;
+}
