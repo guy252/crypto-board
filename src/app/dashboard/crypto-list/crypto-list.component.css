@@ -1,3 +1,16 @@
 .card-group{
     margin-bottom: 1rem;
 }
+
+.empty-board{
+  font-size: 1.5rem;
+  font-weight: bolder;
+  height: 25rem;
+  background-image: url("../../../assets/images/dashboard-blur.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.alert-secondary{
+  color: #6c757d;
+}

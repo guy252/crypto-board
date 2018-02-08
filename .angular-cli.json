@@ -20,14 +20,15 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
+        "../node_modules/bootstrap/dist/css/bootstrap-grid.min.css",
         "../node_modules/font-awesome/css/font-awesome.min.css",
         "../src/styles.css"
       ],
       "scripts": [
+        "../node_modules/jquery/dist/jquery.min.js",
         "../node_modules/bootstrap/dist/js/bootstrap.min.js",
         "../node_modules/systemjs/dist/system.src.js",
         "../node_modules/core-js/client/shim.min.js",
-        "../node_modules/zone.js/dist/zone.js",
         "../node_modules/reflect-metadata/Reflect.js"
       ],
       "environmentSource": "environments/environment.ts",

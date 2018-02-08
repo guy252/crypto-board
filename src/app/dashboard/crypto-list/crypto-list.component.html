@@ -1,6 +1,15 @@
 <div class="card-group">
-    <crypto-card *ngFor="let coin of coins" [coin]="coin" [fiat]="fiat"></crypto-card>
+  <crypto-card *ngFor="let coin of coins" [coin]="coin" [fiat]="fiat"></crypto-card>
 </div>
 <div *ngIf="!coins">
-    {{noDataMsg || 'Nothing to display'}}
+
+  <div class="container empty-board rounded">
+
+    <div class="row align-items-center h-100">
+      <div class="col-sm-12">
+        <div class="alert alert-secondary text-center">Please Select a Currency</div>
+      </div>
+    </div>
+  </div>
+  <!--{{noDataMsg || 'Nothing to display'}}-->
 </div>
