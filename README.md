@@ -1,7 +1,7 @@
 # Angular Cryptocurrencies Dashboard
 ![Crypto Board](../master/src/assets/images/dashboard-readme.png)
 
-## Development server
+## Run Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
