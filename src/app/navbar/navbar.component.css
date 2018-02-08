@@ -1,0 +1,24 @@
+nav {
+    padding: 0.5rem;
+    background-color: #34434b;
+    border-radius: 0;
+    box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+
+}
+
+.nav-logo {
+    max-height: 85px;
+}
+
+.fa-btc {
+    font-size: 2.5rem;
+    color: #fff;
+}
+
+.navbar-brand {
+    margin-left: 1rem;
+    font-size: 2.8rem;
+    font-weight: bold;
+    font-style: italic;
+    color: #fff;
+}
