@@ -1,0 +1,6 @@
+<div class="card-group">
+    <crypto-card *ngFor="let coin of coins" [coin]="coin" [fiat]="fiat"></crypto-card>
+</div>
+<div *ngIf="!coins">
+    {{noDataMsg || 'Nothing to display'}}
+</div>

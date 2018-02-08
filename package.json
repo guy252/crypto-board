@@ -1,7 +1,7 @@
 {
-  "name": "angular2-sid-prj",
+  "name": "cryptoboard",
   "version": "1.0.0",
-  "description": "Sid project for angular2",
+  "description": "Crypto Currencies Dashboard",
   "main": "index.js",
   "scripts": {
     "start": "tsc && concurrently \"stc -w\" \"lite-server\" ",
@@ -25,9 +25,11 @@
     "@angular/platform-browser": "^5.2.0",
     "@angular/platform-browser-dynamic": "^5.2.0",
     "@angular/router": "^5.2.0",
+    "angular-2-dropdown-multiselect": "^1.6.3",
     "angular-in-memory-web-api": "^0.5.3",
-    "bootstrap": "4.0.0-alpha.5",
+    "bootstrap": "^4.0.0",
     "core-js": "2.4.1",
+    "font-awesome": "^4.7.0",
     "reflect-metadata": "0.1.8",
     "rxjs": "^5.5.6",
     "systemjs": "0.19.40",
