@@ -1,5 +1,5 @@
 # Angular Cryptocurrencies Dashboard
-[Crypto Board](https://raw.githubusercontent.com/guy252/crypto-board/master/src/assets/images/dashboard-readme.png)
+![Crypto Board](../master/src/assets/images/dashboard-readme.png)
 
 ## Development server
 
