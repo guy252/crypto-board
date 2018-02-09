@@ -12,15 +12,15 @@
   <div class="card-body">
     <div class="container">
       <div class="row">
-        <div class="col-sm-3 metric">
+        <div class="col-3 metric">
           <div class="metric-title">Rank</div>
           <div class="metric-value">{{coin.rank}}</div>
         </div>
-        <div class="col-sm-5 metric">
+        <div class="col-5 metric">
           <div class="metric-title">market cap</div>
           <div class="metric-value">${{coin.market_cap_usd | shortNumber}}</div>
         </div>
-        <div class="col-sm-4 metric">
+        <div class="col-4 metric">
           <div class="metric-title">7 days</div>
           <div *ngIf="coin.percent_change_7d !== null" [class]="coin.percent_change_7d.charAt(0)==='-' ? 'metric-title value-decreased' : 'wmetric-title value-increased' ">
             {{coin.percent_change_7d }} %
