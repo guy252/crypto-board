@@ -8,7 +8,8 @@ import {DashboardModule} from './dashboard/dashboard.module';
 
 // components
 import {AppComponent} from './app.component';
-import {NavbarComponent} from './navbar/navbar.component';
+import {HeaderComponent} from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {NavbarComponent} from './navbar/navbar.component';
   ],
   declarations: [
     AppComponent,
-    NavbarComponent
+    HeaderComponent,
+    FooterComponent
   ],
   bootstrap: [AppComponent]
 })

@@ -1,0 +1,20 @@
+nav {
+  background-color: #34434b;
+  border-radius: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+  margin-top: 2rem;
+  min-height: 1.5em;
+}
+
+.footer-logo-img {
+  max-height: 25px;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-brand {
+  font-size: 2.8rem;
+  font-weight: bold;
+  font-style: italic;
+  color: #fff;
+}

@@ -14,8 +14,8 @@ var NavbarComponent = /** @class */ (function () {
         core_1.Component({
             moduleId: module.id,
             selector: 'navbar',
-            templateUrl: 'navbar.component.html',
-            styleUrls: ['navbar.component.css']
+            templateUrl: 'header.component.html',
+            styleUrls: ['header.component.css']
         })
     ], NavbarComponent);
     return NavbarComponent;
