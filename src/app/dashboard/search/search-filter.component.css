@@ -1,13 +1,25 @@
-#selectedCurrency{
-    padding: 0;
+.container{
+  padding-bottom: 1rem;
 }
 
-#crypto-list-form-group{
-    padding-left: 0;
-    margin-bottom: 0;
+#selectedCurrency {
+  padding: 0;
 }
 
-#cryptocurrencies{
-    margin: 1rem 0 1.5rem 0;
-    color: #ccc;
+.crypto-currencies-select-box,
+.fiat-currencies-select-box{
+
+}
+
+.crypto-currencies-select-box {
+  width: 100%;
+  /*padding-left: 0;*/
+  /*margin-bottom: 0;*/
+  background-color: #344349;
+}
+
+#cryptocurrencies {
+  margin: 1rem 0 1.5rem 0;
+  color: #ccc;
+
 }

@@ -1,33 +1,58 @@
-<div class="container" style="border: 1px solid;">
-    <form>
-        <div class="form-group" style="border: 1px solid;">
-            <div class="row">
-                <div class="col-sm-3">
-                    <div class="form-group">
-                        <label for="selectedCurrency" class="sr-only">Select Currency</label>
-                        <select id="selectedCurrency" name="selectedCurrency"
-                                [(ngModel)]="selectedCurrency"
-                                (change)="selectCurrency($event.target.value)"
-                                id="fiat"
-                                class="form-control btn btn-primary fiat-currencies-select-box">
-                            <option value="">Select fiat currency</option>
-                            <option *ngFor="let currency of currencies" value="{{currency}}">{{currency.toUpperCase()}}</option>
-                        </select>
-                    </div>
-                </div>
-                <div class="col-sm-5">
-                    <div class="form-group" id="crypto-list-form-group">
-                        <ss-multiselect-dropdown id="cryptocurrencies"
-                                                 name="cryptocurrencies" [texts]="myTexts" [settings]="mySettings"
-                                                 [options]="cryptoCurrOptions" [(ngModel)]="optionsModel"
-                                                 (ngModelChange)="filterChange($event)">
-                        </ss-multiselect-dropdown>
-                    </div>
-                </div>
-                <div class="col-sm-4">
+<div class="container" style="border: 0px solid;">
+  <div class="row justify-content-center">
+    <div class="col-sm-4 fiat-currencies-select-box">
+      <select id="selectedCurrency" name="selectedCurrency"
+              [(ngModel)]="selectedCurrency"
+              (change)="selectCurrency($event.target.value)"
+              id="fiat"
+              class="form-control btn btn-primary fiat-currencies-select-box">
+        <option value="">Select fiat currency</option>
+        <option *ngFor="let currency of currencies" value="{{currency}}">{{currency.toUpperCase()}}</option>
+      </select>
+    </div>
 
-                </div>
-            </div>
-        </div>
-    </form>
+    <div class="col-sm-4 crypto-currencies-select-box">
+      <ss-multiselect-dropdown id="cryptocurrencies"
+                               name="cryptocurrencies" [texts]="myTexts" [settings]="mySettings"
+                               [options]="cryptoCurrOptions" [(ngModel)]="optionsModel"
+                               (ngModelChange)="filterChange($event)">
+      </ss-multiselect-dropdown>
+    </div>
+    <!--<div class="col-sm-4"></div>-->
+  </div>
+
+
 </div>
+
+
+<!--<div class="container" style="border: 1px solid;">-->
+<!--<form>-->
+<!--<div class="form-group" style="border: 1px solid;">-->
+<!--<div class="row justify-content-center">-->
+<!--<div class="col-6" style="height: 50px; border: 1px solid;">-->
+<!--<div class="form-group">-->
+<!--<label for="selectedCurrency" class="sr-only">Select Currency</label>-->
+<!--<select id="selectedCurrency" name="selectedCurrency"-->
+<!--[(ngModel)]="selectedCurrency"-->
+<!--(change)="selectCurrency($event.target.value)"-->
+<!--id="fiat"-->
+<!--class="form-control btn btn-primary fiat-currencies-select-box">-->
+<!--<option value="">Select fiat currency</option>-->
+<!--<option *ngFor="let currency of currencies" value="{{currency}}">{{currency.toUpperCase()}}</option>-->
+<!--</select>-->
+<!--</div>-->
+<!--</div>-->
+<!--<div class="col-6" style="height: 50px; border: 1px solid;">-->
+<!--<div class="form-group" id="crypto-list-form-group" style="border: 1px solid;">-->
+<!--<label for="cryptocurrencies" class="sr-only">Filter Crypto</label>-->
+<!--<ss-multiselect-dropdown id="cryptocurrencies"-->
+<!--name="cryptocurrencies" [texts]="myTexts" [settings]="mySettings"-->
+<!--[options]="cryptoCurrOptions" [(ngModel)]="optionsModel"-->
+<!--(ngModelChange)="filterChange($event)">-->
+<!--</ss-multiselect-dropdown>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</div>-->
+<!--</form>-->
+<!--</div>-->
