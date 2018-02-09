@@ -1,6 +1,13 @@
-<div class="card-group">
-  <crypto-card *ngFor="let coin of coins" [coin]="coin" [fiat]="fiat"></crypto-card>
+<div class="container align-items-center">
+  <div class="row">
+    <div class="col-12">
+      <div class="card-group">
+        <crypto-card *ngFor="let coin of coins" [coin]="coin" [fiat]="fiat"></crypto-card>
+      </div>
+    </div>
+  </div>
 </div>
+
 <div *ngIf="!coins">
   <div class="container empty-board rounded">
     <div class="row align-items-center h-100">
