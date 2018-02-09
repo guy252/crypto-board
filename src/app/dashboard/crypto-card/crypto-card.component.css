@@ -11,6 +11,13 @@
     text-align: center;
 }
 
+.card-footer{
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+  font-size: 0.7rem;
+  font-style: italic;
+}
+
 .metric,
 .metric-title,
 .metric-value {

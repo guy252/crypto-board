@@ -37,7 +37,7 @@ export class SearchFilterComponent implements OnInit {
     };
 
     constructor(private appService: AppService) {
-        this.currencies = ['usd', 'eur']; // fiat currency options
+        this.currencies = ['usd', 'eur', 'gbp']; // fiat currency options
         this.selectedCurrency = ''; // model to store selected fiat
         // array to hold names of cryptos to be used in filtering
         this.cryptoCurrOptions = [];
@@ -45,21 +45,26 @@ export class SearchFilterComponent implements OnInit {
         this.appService.coinsSubject.subscribe({
             next: (v) => this.updateCryptoOptions(v),
         });
+
+
     }
 
     ngOnInit() {
+      this.selectedCurrency = 'usd'
+      this.selectCurrency('usd');
+
+      // let interval = setInterval(() => {
+      //     this.appService.loadMarketCaps(newValue);
+      // }, 60000);
     }
 
     selectCurrency(newValue) {
         this.appService.loadMarketCaps(newValue);
-
-        // let interval = setInterval(() => {
-        //     this.appService.loadMarketCaps(newValue);
-        // }, 60000);
     }
 
     filterChange(newValue) {
         // BUG method should not be triggered by filter select
+      console.log("BUG method should not be triggered by filter select")
         this.appService.updateFilter(newValue);
     }
 

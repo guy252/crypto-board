@@ -33,7 +33,7 @@ export class AppService {
         this.fiatSubject.next(fiat);
         const url = API_BASE_URL + 'ticker/';
         let params = new HttpParams();
-        // params = params.append('limit', '25');
+        params = params.append('limit', '250');
         if (fiat !== 'usd') {
             // TODO: check if fiat is valid
             params = params.append('convert', fiat);
