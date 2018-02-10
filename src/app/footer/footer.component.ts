@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import  {SOCIAL_NETWORKS} from "../../constants/social";
+import  {SOCIAL_NETWORKS} from "../constants/social";
 
 @Component({
   moduleId: module.id,
