@@ -1,0 +1,18 @@
+.container {
+
+}
+
+.ticker {
+  font-size: 1.2rem;
+  color: #212529;
+  margin-bottom: 0.8rem;
+}
+
+.ticker-title {
+  font-weight: bolder;
+}
+
+.ticker-value {
+  font-weight: normal;
+  font-style: italic;
+}

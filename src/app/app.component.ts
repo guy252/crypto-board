@@ -11,8 +11,8 @@ import {Component} from '@angular/core';
     `,
   styles: [`
         .container {
-          border: 0px solid;
-            margin-top: 3rem;
+            border: 0px solid;
+            margin-top: 1.2rem;
         }
     `]
 

@@ -44,12 +44,11 @@ export class SearchFilterComponent implements OnInit {
 
     // array to hold names of cryptos to be used in filtering
     this.cryptoCurrOptions = [];
+
     // coinsSubject is a RxJs subject in our service that will notify us when the api has gotten data about crypto coins
     this.appService.coinsSubject.subscribe({
       next: (v) => this.updateCryptoOptions(v),
     });
-
-
   }
 
   ngOnInit() {
@@ -59,13 +58,13 @@ export class SearchFilterComponent implements OnInit {
     // this.appService.loadTotalMarketCap('usd');
 
     // let interval = setInterval(() => {
-    //     this.appService.loadTotalMarketCap('usd');
-    //     this.appService.loadCoinMarketCaps(usd);
-    // }, 60000);
+    //     this.appService.loadTotalMarketCap(this.selectedCurrency);
+    //     this.appService.loadCoinMarketCaps(this.selectedCurrency);
+    // }, 15000);
   }
 
   selectCurrency(newValue) {
-    // this.appService.loadTotalMarketCap(newValue);
+    this.appService.loadTotalMarketCap(newValue);
     this.appService.loadCoinMarketCaps(newValue);
   }
 

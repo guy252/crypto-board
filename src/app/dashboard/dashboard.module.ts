@@ -12,6 +12,7 @@ import {SearchFilterComponent} from './search/search-filter.component';
 import {CryptoListComponent} from './crypto-list/crypto-list.component';
 import {CryptoCardComponent} from './crypto-card/crypto-card.component';
 import {ShortNumberPipe} from '../custom-pipe/short-number.pipe';
+import { MarketcapStripComponent } from './marketcap-strip/marketcap-strip.component';
 
 @NgModule({
     imports: [
@@ -26,7 +27,8 @@ import {ShortNumberPipe} from '../custom-pipe/short-number.pipe';
         SearchFilterComponent,
         CryptoListComponent,
         CryptoCardComponent,
-        ShortNumberPipe
+        ShortNumberPipe,
+        MarketcapStripComponent
     ],
     exports: [],
     providers: []
