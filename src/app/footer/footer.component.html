@@ -1,20 +1,14 @@
 <nav class="navbar-dark bg-inverse">
   <div class="container">
-    <div class="row">
+    <div class="row align-middle">
       <div class="col-12 footer-brand text-center">
-        <a class="btn">
-          <span class="fa fa-facebook"></span>
-        </a>
-        <a class="btn">
-          <span class="fa fa-twitter"></span>
-        </a>
-        <a class="btn">
-          <span class="fa fa-linkedin"></span>
-        </a>
+        <div (click)="shareToFacebook()" class="align-middle fa fa-facebook-official"></div>
+        <div (click)="shareToTwitter()" class="align-middle fa fa-twitter"></div>
+        <div (click)="shareToWhatsapp()" class="align-middle fa fa-whatsapp"></div>
+        <div (click)="shareToTelegram()" class="align-middle fa fa-telegram"></div>
       </div>
     </div>
   </div>
 </nav>
-
 
 
