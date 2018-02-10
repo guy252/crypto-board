@@ -15,6 +15,7 @@ export class SearchFilterComponent implements OnInit {
   cryptoCurrOptions: IMultiSelectOption[];
   selectedCurrency: string;
   optionsModel: number[];
+
   // Settings configuration for the multiselect plugin
   mySettings: IMultiSelectSettings = {
     enableSearch: true,
@@ -23,6 +24,7 @@ export class SearchFilterComponent implements OnInit {
     dynamicTitleMaxItems: 5,
     displayAllSelectedText: true
   };
+
   // Text configuration for the multiselect plugin
   myTexts: IMultiSelectTexts = {
     checkAll: 'Select All',
@@ -39,6 +41,7 @@ export class SearchFilterComponent implements OnInit {
   constructor(private appService: AppService) {
     this.currencies = ['usd', 'eur', 'gbp']; // fiat currency options
     this.selectedCurrency = ''; // model to store selected fiat
+
     // array to hold names of cryptos to be used in filtering
     this.cryptoCurrOptions = [];
     // coinsSubject is a RxJs subject in our service that will notify us when the api has gotten data about crypto coins
@@ -50,16 +53,20 @@ export class SearchFilterComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.selectedCurrency = 'usd'
-      this.selectCurrency('usd');
+    this.selectedCurrency = 'usd';
+    this.selectCurrency('usd');
+
+    // this.appService.loadTotalMarketCap('usd');
 
     // let interval = setInterval(() => {
-    //     this.appService.loadMarketCaps(newValue);
+    //     this.appService.loadTotalMarketCap('usd');
+    //     this.appService.loadCoinMarketCaps(usd);
     // }, 60000);
   }
 
   selectCurrency(newValue) {
-    this.appService.loadMarketCaps(newValue);
+    // this.appService.loadTotalMarketCap(newValue);
+    this.appService.loadCoinMarketCaps(newValue);
   }
 
   filterChange(newValue) {

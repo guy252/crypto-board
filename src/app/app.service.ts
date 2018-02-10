@@ -2,18 +2,23 @@
 import {Injectable} from '@angular/core';
 import {Subject} from 'rxjs/Subject';
 import {HttpClient, HttpParams} from '@angular/common/http';
-// Import Coin Shape file
-import {Coin} from './model/coin';
 
-const API_BASE_URL = 'https://api.coinmarketcap.com/v1/';
+import * as cmcConstants from './constants/const.cmc';
+
+// Import model objects
+import {Coin} from './model/coin';
+import {Market} from './model/market';
+
 
 @Injectable()
 export class AppService {
+  private totalMarketCap: Market;
   private allCoins: Coin[]; // will hold unmodified data returned by the api
   private filteredCoins: Coin[]; // will hold data filtered from this.allCoins
   private filter: number[]; // will hold the array index of data contained in this. allCoins that should not be filtered out
 
   // A couple of RxJs Subjects very important for communicating across Angular Components
+  totalMarketCapSubject: Subject<Market>;
   coinsSubject: Subject<Coin[]>;
   filteredCoinsSubject: Subject<Coin[]>;
   apiSubject: Subject<string>;
@@ -21,7 +26,9 @@ export class AppService {
 
   constructor(private http: HttpClient) {
     this.filter = [];
+
     // we initialize our subjects
+    this.totalMarketCapSubject = new Subject();
     this.coinsSubject = new Subject();
     this.filteredCoinsSubject = new Subject();
     this.apiSubject = new Subject();
@@ -29,13 +36,13 @@ export class AppService {
   }
 
   // this method loads market cap data from the API
-  loadMarketCaps(fiat: string) {
+  loadCoinMarketCaps(fiat: string) {
     this.fiatSubject.next(fiat);
-    const url = API_BASE_URL + 'ticker/';
-    let timeStamp = +new Date();
+    const url = cmcConstants.API_BASE_URL + cmcConstants.COINS_END_POINT;
+    const timeStamp = +new Date();
     let params = new HttpParams();
 
-    params = params.append('limit', '250').append('tsp', "" + timeStamp);
+    params = params.append('limit', '250').append('tsp', '' + timeStamp);
 
     if (fiat !== 'usd') {
       // TODO: check if fiat is valid
@@ -55,6 +62,32 @@ export class AppService {
       );
   }
 
+  loadTotalMarketCap(fiat) {
+    this.fiatSubject.next(fiat);
+    const url = cmcConstants.API_BASE_URL + cmcConstants.TOTAL_MARKET_CAP_END_POINT;
+    const timeStamp = +new Date();
+    let params = new HttpParams();
+
+    params = params.append('tsp', '' + timeStamp);
+
+    if (fiat !== 'usd') {
+      // TODO: check if fiat is valid
+      params = params.append('convert', fiat);
+    }
+    this.apiSubject.next('loading...');
+
+    this.http
+      .get<Market>(url, {params})
+      .subscribe(
+        data => {
+          console.log(data);
+          this.totalMarketCap = data; // store returned data
+          this.announceTotalMarketCap(); // trigger announcements
+          // this.filterMarketCaps();
+        }
+      );
+  }
+
   filterMarketCaps() {
     this.filteredCoins = [];
     if (this.filter.length === 0) {
@@ -66,6 +99,10 @@ export class AppService {
       });
     }
     this.announceFilteredCoins();
+  }
+
+  announceTotalMarketCap() {
+    this.totalMarketCapSubject.next(this.totalMarketCap);
   }
 
   announceCoins() {

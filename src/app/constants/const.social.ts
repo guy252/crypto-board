@@ -1,4 +1,4 @@
-import {BASE_URL} from "./global";
+import {BASE_URL} from "./const.global";
 
 export const SOCIAL_NETWORKS = {
   facebook: {
