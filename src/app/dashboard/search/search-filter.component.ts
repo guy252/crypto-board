@@ -53,14 +53,20 @@ export class SearchFilterComponent implements OnInit {
 
   ngOnInit() {
     this.selectedCurrency = 'usd';
+
+    /**
+     * calling this method for the initial load of data, when the component is initialized.
+     */
     this.selectCurrency('usd');
 
-    // this.appService.loadTotalMarketCap('usd');
-
-    // let interval = setInterval(() => {
-    //     this.appService.loadTotalMarketCap(this.selectedCurrency);
-    //     this.appService.loadCoinMarketCaps(this.selectedCurrency);
-    // }, 15000);
+    /**
+     * after the initial load, we set a timer that loads the data every (n) milliseconds
+     * TODO: check if that works when changing the selected currency from the ui.
+     */
+    let interval = setInterval(() => {
+        this.appService.loadTotalMarketCap(this.selectedCurrency);
+        this.appService.loadCoinMarketCaps(this.selectedCurrency);
+    }, 2 * 60 * 1000);
   }
 
   selectCurrency(newValue) {
