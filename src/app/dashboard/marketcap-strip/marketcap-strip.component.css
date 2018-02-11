@@ -18,10 +18,18 @@
 }
 
 /*mobile*/
-@media screen and (min-device-width : 320px) and (max-device-width : 740px) {
+@media screen and (min-device-width: 320px) and (max-device-width: 740px) {
   .ticker {
     font-size: 0.9rem;
     margin-bottom: 0.6rem;
+  }
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 740px) and (orientation: portrait) {
+  .container {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
   }
 }
 
