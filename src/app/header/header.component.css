@@ -19,7 +19,7 @@ nav {
 }
 
  /*mobile*/
-@media screen and (min-device-width : 320px) and (max-device-width : 1280px) {
+@media screen and (min-device-width : 320px) and (max-device-width : 740px) {
   .nav-logo-img {
     max-height: 2.5rem;
   }
