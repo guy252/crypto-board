@@ -1,0 +1,20 @@
+
+.container {
+  /*border: 1px solid;*/
+  margin-top: 1.2rem;
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 740px){
+  .container {
+    /*border: 1px solid;*/
+    margin-top: 0.9rem;
+  }
+}
+
+@media screen and (min-device-width : 320px) and (max-device-width : 740px) and (orientation : landscape){
+  .container {
+    /*border: 1px solid;*/
+    max-width:100%;
+    margin-top: 0.9rem;
+  }
+}
