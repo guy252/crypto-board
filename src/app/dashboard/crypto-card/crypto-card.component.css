@@ -1,5 +1,5 @@
 .card {
-    width: 20rem;
+  width: 20rem;
 }
 
 .card-header {
@@ -7,12 +7,12 @@
 }
 
 .card-body {
-    padding: 1rem 0 1rem 0;
-    font-size: 0.9rem;
-    text-align: center;
+  padding: 1rem 0 1rem 0;
+  font-size: 0.9rem;
+  text-align: center;
 }
 
-.card-footer{
+.card-footer {
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
   font-size: 0.7rem;
@@ -22,19 +22,49 @@
 .metric,
 .metric-title,
 .metric-value {
-    text-transform: uppercase;
+  text-transform: uppercase;
 }
 
 .metric-title {
-    font-weight: bolder;
+  font-weight: bolder;
 }
 
 .value-increased {
-    font-weight: bolder;
-    color: green;
+  font-weight: bolder;
+  color: green;
 }
 
 .value-decreased {
-    font-weight: bolder;
-    color: red;
+  font-weight: bolder;
+  color: red;
+}
+
+/*@media screen and (min-device-width : 320px) and (max-device-width : 740px)*/
+
+@media screen and (min-device-width: 320px) and (max-device-width: 740px) and (orientation: landscape) {
+  .card {
+    width: 15rem;
+  }
+
+  .card-body {
+    padding: 1rem 0 1rem 0;
+    font-size: 0.9rem;
+  }
+
+  .card-footer {
+    padding-top: 0.2rem;
+    padding-bottom: 0.2rem;
+    font-size: 0.7rem;
+  }
+
+  .metric,
+  .metric-title,
+  .metric-value {
+    font-size: 0.7rem;
+  }
+
+  .metric{
+    padding-left:0.2rem;
+    padding-right:0.2rem;
+  }
 }
