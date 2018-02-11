@@ -1,9 +1,9 @@
-.container{
+.container {
   padding-bottom: 1rem;
 }
 
-.form-group{
-padding: 0.5rem;
+.form-group {
+  padding: 0.5rem;
 }
 
 #selectedCurrency {
@@ -11,7 +11,7 @@ padding: 0.5rem;
 }
 
 .crypto-currencies-select-box,
-.fiat-currencies-select-box{
+.fiat-currencies-select-box {
 
 }
 
@@ -26,4 +26,14 @@ padding: 0.5rem;
   margin: 1rem 0 1.5rem 0;
   color: #ccc;
 
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 740px) {
+  .container {
+    padding-bottom: 0;
+  }
+
+  .form-group {
+    padding-bottom: 0;
+  }
 }
