@@ -1,0 +1,87 @@
+
+.btn {
+  border-radius: 0.2rem;
+}
+
+.btn-info {
+  background-color: transparent;
+  border: none;
+}
+
+.btn:focus, .btn-info:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.dropdown-menu {
+  min-width: auto;
+  background-color: white;
+}
+
+.dropdown-item {
+  padding: .5rem 0.7rem;
+}
+
+.fa-share-alt {
+  font-size: 1.3rem;
+}
+
+.facebook {
+  background-color: #3D5B96;
+}
+
+.twitter {
+  background-color: #3399CC;
+}
+
+.whatsapp {
+  background-color: #4dc247;
+}
+
+.telegram {
+  background-color: #0088CC;
+}
+
+.mail {
+  background-color: #FFC90E;
+}
+
+.fa-facebook-official,
+.fa-twitter,
+.fa-whatsapp,
+.fa-telegram,
+.fa-telegram,
+.fa-envelope {
+  color: #fff;
+  font-size: 1.3rem;
+  cursor: pointer;
+}
+
+/*mobile*/
+@media screen and (min-device-width: 320px) and (max-device-width: 740px) {
+  .btn {
+    padding: 0.1rem 0.3rem 0.1rem 0.3rem;
+  }
+
+  .fa-share-alt {
+    font-size: 1rem;
+  }
+
+  .dropdown-menu {
+    min-width: auto;
+  }
+
+  .dropdown-item {
+    padding: .5rem 0.7rem;
+  }
+
+  .fa-facebook-official,
+  .fa-twitter,
+  .fa-whatsapp,
+  .fa-telegram,
+  .fa-telegram,
+  .fa-envelope {
+    font-size: 1rem;
+  }
+}

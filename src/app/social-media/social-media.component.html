@@ -1,0 +1,21 @@
+<button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+  <i class="fa fa-share-alt"></i>
+</button>
+<div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <div (click)="shareToFacebook()" class="dropdown-item facebook" href="#" angulartics2On="click"
+       angularticsAction="ShareClick"
+       angularticsLabel="share-to-facebook"><i class="fa fa-facebook-official"></i></div>
+  <div (click)="shareToTwitter()" class="dropdown-item twitter" href="#" angulartics2On="click"
+       angularticsAction="ShareClick"
+       angularticsLabel="share-to-twitter"><i class="fa fa-twitter"></i></div>
+  <div (click)="shareToWhatsapp()" class="dropdown-item whatsapp" href="#" angulartics2On="click"
+       angularticsAction="ShareClick"
+       angularticsLabel="share-to-whatsapp"><i class="fa fa-whatsapp"></i></div>
+  <div (click)="shareToTelegram()" class="dropdown-item telegram" href="#" angulartics2On="click"
+       angularticsAction="ShareClick"
+       angularticsLabel="share-to-telegram"><i class="fa fa-telegram"></i></div>
+  <div (click)="shareToEmail()" class="dropdown-item mail" href="#" angulartics2On="click"
+       angularticsAction="ShareClick"
+       angularticsLabel="share-to-email"><i class="fa fa-envelope"></i></div>
+</div>

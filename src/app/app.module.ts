@@ -13,6 +13,7 @@ import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
+import {SocialMediaComponent} from './social-media/social-media.component';
 
 
 @NgModule({
@@ -26,7 +27,8 @@ import {FooterComponent} from './footer/footer.component';
   declarations: [
     AppComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    SocialMediaComponent
   ],
   bootstrap: [AppComponent]
 })

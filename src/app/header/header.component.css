@@ -2,6 +2,9 @@ nav {
   background-color: #34434b;
   border-radius: 0;
   box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+social-media{
 
 }
 
@@ -12,6 +15,7 @@ nav {
 }
 
 .navbar-brand {
+  margin: 0;
   font-size: 2.8rem;
   font-weight: bold;
   font-style: italic;
