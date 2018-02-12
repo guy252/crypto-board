@@ -1,5 +1,7 @@
 import {Component} from '@angular/core';
 
+import * as globalConstants from '../constants/const.global';
+
 @Component({
   moduleId: module.id,
   selector: 'footer-navbar',
@@ -8,5 +10,6 @@ import {Component} from '@angular/core';
 })
 
 export class FooterComponent {
+  supportEmailAddress = globalConstants.EMAIL_ADDRESS_SUPPORT;
 }
 

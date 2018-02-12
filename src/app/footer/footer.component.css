@@ -6,21 +6,9 @@ nav {
   margin-top: 2rem;
 }
 
-.fa {
-  font-size: 1.5rem;
-}
-
-.fa-facebook-official,
-.fa-twitter,
-.fa-whatsapp,
-.fa-telegram{
-  padding-left: 1rem;
-  padding-right: 1rem;
-  cursor: pointer;
-}
-
-.fa-facebook-official {
-  color: white;
+.fa-envelope {
+  font-size: 1rem;
+  color: lightgray;
 }
 
 .footer-brand {
