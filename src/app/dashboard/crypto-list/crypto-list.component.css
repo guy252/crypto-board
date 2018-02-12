@@ -1,8 +1,9 @@
-.card-deck{
-
+.card-deck {
+  /*border: 1px solid;*/
+  margin: 0 !important;
 }
 
-.empty-board{
+.empty-board {
   font-size: 1.5rem;
   font-weight: bolder;
   height: 25rem;
@@ -12,9 +13,10 @@
   box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.24);
 }
 
-.alert-secondary{
+.alert-secondary {
   color: #6c757d;
 }
-.fa-circle-o-notch{
+
+.fa-circle-o-notch {
   color: #34434b;
 }
