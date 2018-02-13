@@ -8,6 +8,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {Angulartics2Module} from 'angulartics2';
 import {Angulartics2GoogleAnalytics} from 'angulartics2/ga';
 import {ToastModule} from 'ng2-toastr/ng2-toastr';
+import {Ng2Webstorage} from 'ngx-webstorage';
 
 // app modules
 import {AppRoutingModule} from './app-routing.module';
@@ -28,7 +29,8 @@ import {SocialMediaComponent} from './social-media/social-media.component';
     AppRoutingModule,
     DashboardModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
-    ToastModule.forRoot()
+    ToastModule.forRoot(),
+    Ng2Webstorage
   ],
   declarations: [
     AppComponent,
