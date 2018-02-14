@@ -28,6 +28,42 @@
 
 }
 
+.btn-pin {
+  margin-top: 0.1rem;
+  border: none;
+  background-color: transparent;
+  border-radius: 0;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
+}
+
+.btn-pin:hover,
+.btn-pin:disabled,
+.btn-pin:active {
+  background-color: #3f515a;
+  border-color: #3f515a;
+}
+
+.fa-thumbtack{
+  color: #34434b;
+  font-size: 2rem;
+}
+
+.fa-thumbtack:hover,
+.fa-thumbtack:disabled,
+.fa-thumbtack:active{
+  color: #fff;
+}
+
+.unpinned{
+  transform: rotate(20deg);
+}
+
+.unpinned:hover,
+.unpinned:disabled,
+.unpinned:active{
+  color: #fff;
+}
+
 @media screen and (min-device-width: 320px) and (max-device-width: 740px) {
   .container {
     padding-bottom: 0;
@@ -35,5 +71,13 @@
 
   .form-group {
     padding-bottom: 0;
+  }
+
+  .btn-pin {
+    margin-top: 0;
+  }
+
+  .fa-thumbtack{
+    font-size: 1.9rem;
   }
 }

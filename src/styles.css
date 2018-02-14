@@ -1,5 +1,24 @@
+
+/******************** fontawesome classes ********************/
+
+.fa-rotate-45 {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+
+/*************************************************************/
+
 .btn {
   border-radius: 0px;
+}
+
+.btn:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 
 .btn-success {

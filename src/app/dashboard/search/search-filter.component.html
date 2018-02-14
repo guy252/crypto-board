@@ -18,8 +18,12 @@
                                (ngModelChange)="filterChange($event)">
       </ss-multiselect-dropdown>
     </div>
-    <!--<div class="col-sm-4"></div>-->
+
+    <div class="form-group">
+      <button type="button" (click)="changeDashboardItemsPinnedStatus()" class="btn btn-info btn-pin">
+        <i [ngClass]="dashboardItemsPinned ? 'fa fa-thumbtack' : 'fa fa-thumbtack fa-rotate-45'"></i>
+      </button>
+      <!--{{dashboardItemsPinned}}-->
+    </div>
   </div>
 </div>
-
-

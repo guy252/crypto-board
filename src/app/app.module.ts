@@ -30,7 +30,7 @@ import {SocialMediaComponent} from './social-media/social-media.component';
     DashboardModule,
     Angulartics2Module.forRoot([Angulartics2GoogleAnalytics]),
     ToastModule.forRoot(),
-    Ng2Webstorage
+    Ng2Webstorage,
   ],
   declarations: [
     AppComponent,

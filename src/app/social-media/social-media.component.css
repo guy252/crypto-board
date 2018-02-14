@@ -8,12 +8,6 @@
   border: none;
 }
 
-.btn:focus, .btn-info:focus {
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-
 .dropdown-menu {
   min-width: auto;
   background-color: white;
@@ -47,7 +41,7 @@
   background-color: #FFC90E;
 }
 
-.fa-facebook-official,
+.fa-facebook,
 .fa-twitter,
 .fa-whatsapp,
 .fa-telegram,
@@ -76,7 +70,7 @@
     padding: .5rem 0.7rem;
   }
 
-  .fa-facebook-official,
+  .fa-facebook,
   .fa-twitter,
   .fa-whatsapp,
   .fa-telegram,
