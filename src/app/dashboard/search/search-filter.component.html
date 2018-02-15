@@ -20,7 +20,7 @@
     </div>
 
     <div class="form-group">
-      <button type="button" (click)="changeDashboardItemsPinnedStatus()" class="btn btn-info btn-pin">
+      <button type="button" (click)="changeDashboardItemsPinnedStatus()" class="btn btn-info btn-pin" title="{{messages.TOOLTIP_PIN_BUTTON}}">
         <i [ngClass]="dashboardItemsPinned ? 'fa fa-thumbtack' : 'fa fa-thumbtack fa-rotate-45'"></i>
       </button>
       <!--{{dashboardItemsPinned}}-->

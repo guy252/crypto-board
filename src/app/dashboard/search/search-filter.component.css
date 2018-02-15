@@ -39,7 +39,7 @@
 .btn-pin:hover,
 .btn-pin:disabled,
 .btn-pin:active {
-  background-color: #3f515a;
+  background-color: lightgray;
   border-color: #3f515a;
 }
 
@@ -48,21 +48,21 @@
   font-size: 2rem;
 }
 
-.fa-thumbtack:hover,
-.fa-thumbtack:disabled,
-.fa-thumbtack:active{
-  color: #fff;
-}
+/*.fa-thumbtack:hover,*/
+/*.fa-thumbtack:disabled,*/
+/*.fa-thumbtack:active{*/
+  /*color: #fff;*/
+/*}*/
 
-.unpinned{
-  transform: rotate(20deg);
-}
+/*.unpinned{*/
+  /*transform: rotate(20deg);*/
+/*}*/
 
-.unpinned:hover,
-.unpinned:disabled,
-.unpinned:active{
-  color: #fff;
-}
+/*.unpinned:hover,*/
+/*.unpinned:disabled,*/
+/*.unpinned:active{*/
+  /*color: #fff;*/
+/*}*/
 
 @media screen and (min-device-width: 320px) and (max-device-width: 740px) {
   .container {

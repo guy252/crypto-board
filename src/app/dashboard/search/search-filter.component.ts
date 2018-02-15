@@ -22,6 +22,7 @@ import {AppService} from '../../app.service';
 })
 
 export class SearchFilterComponent implements OnInit {
+  messages = MESSAGES;
   currencies: string[];
   cryptoCurrOptions: IMultiSelectOption[];
   selectedCurrency: string;
