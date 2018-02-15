@@ -1,15 +1,16 @@
-<div class="container text-center ticker">
-  <div class="row">
-    <div class="col-6">
-      <span class="ticker-title">Market Cap:</span> <span class="ticker-value">
+<div class="container p-0 m-0 pt-2 pb-2 mb-3 mw-100 text-center marketcap-strip-container">
+  <div class="container text-center ticker">
+    <div class="row">
+      <div class="col-6">
+        <span class="ticker-title">M. Cap:</span> <span class="ticker-value">
         ${{marketCapData.total_market_cap_usd|number}}
       </span>
-    </div>
-    <div class="col-6">
-      <span class="ticker-title">24h Vol:</span> <span class="ticker-value">
+      </div>
+      <div class="col-6">
+        <span class="ticker-title">24h Vol:</span> <span class="ticker-value">
         ${{marketCapData.total_24h_volume_usd|number}}
       </span>
+      </div>
     </div>
   </div>
 </div>
-
