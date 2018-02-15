@@ -17,7 +17,10 @@ export class MarketcapStripComponent implements OnInit {
     this.marketCapData = <any>{};
 
     this.appService.totalMarketCapSubject.subscribe({
-      next: (data) => this.marketCapData = data
+      next: (data) => {
+        this.marketCapData = data;
+        this.currentDate = new Date();
+      }
     });
   }
 
