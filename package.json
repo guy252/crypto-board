@@ -11,7 +11,7 @@
   "main": "index.js",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "node server.js",
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
@@ -34,6 +34,7 @@
     "angulartics2": "^5.1.0",
     "bootstrap": "^4.0.0",
     "core-js": "^2.4.1",
+    "express": "^4.16.2",
     "jquery": "^3.3.1",
     "ng2-toastr": "^4.1.2",
     "ngx-webstorage": "^2.0.1",

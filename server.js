@@ -1,3 +1,9 @@
+/**
+ * To use the local express server, first run ng build, to create the dist directory.
+ * To run the server - npm start
+ * Server is listening on port 8080
+ */
+
 //Install express server
 const express = require('express');
 const app = express();
