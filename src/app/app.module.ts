@@ -19,6 +19,8 @@ import {AppComponent} from './app.component';
 import {HeaderComponent} from './header/header.component';
 import {FooterComponent} from './footer/footer.component';
 import {SocialMediaComponent} from './social-media/social-media.component';
+import {WalletsComponent} from './wallets/wallets.component';
+import {WalletDetailsComponent} from './wallets/wallet-details/wallet-details.component';
 
 
 @NgModule({
@@ -36,10 +38,13 @@ import {SocialMediaComponent} from './social-media/social-media.component';
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    SocialMediaComponent
+    SocialMediaComponent,
+    WalletsComponent,
+    WalletDetailsComponent
   ],
   bootstrap: [AppComponent]
 })
 
 export class AppModule {
+
 }

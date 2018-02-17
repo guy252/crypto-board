@@ -1,0 +1,27 @@
+.modal-title {
+  font-weight: bolder;
+}
+
+.wallet-address {
+  font-size: 1.1rem;
+  font-weight: bolder;
+  word-wrap: break-word;
+}
+
+.wallet-img {
+  padding-top: 1rem;
+}
+
+/*mobile*/
+@media screen and (min-device-width: 320px) and (max-device-width: 740px) {
+  .wallet-address {
+    font-size: 0.9rem;
+    word-wrap: break-word;
+  }
+}
+
+@media screen and (min-device-width: 320px) and (max-device-width: 740px) and (orientation: portrait) {
+  .wallet-address {
+    font-size: 0.9rem;
+  }
+}

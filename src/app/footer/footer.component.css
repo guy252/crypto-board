@@ -11,9 +11,15 @@ nav {
   color: lightgray;
 }
 
-.footer-brand {
-
+.footer-brand{
   font-size: 0.8rem;
   font-style: italic;
   color: lightgray;
+}
+
+.footer-donate{
+  font-size: 0.8rem;
+  font-style: italic;
+  color: #000;
+  box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.24);
 }

@@ -1,0 +1,38 @@
+<div class="row text-center">
+  <div class="col">
+    <span>{{wallets.bitcoin.linkText}}: <a href="#"
+                                       [attr.data-target]=" '#' + walletDetails.modalId"
+                                       (click)="walletDetails.showWallet(wallets.bitcoin);"
+                                       data-toggle="modal"
+                                       angulartics2On="click"
+                                       angularticsAction="SendCoins"
+                                       angularticsLabel="send-btc">{{wallets.bitcoin.address}}</a></span>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col">
+    <span>{{wallets.ethereum.linkText}}: <a href="#"
+                                        [attr.data-target]=" '#' + walletDetails.modalId"
+                                        (click)="walletDetails.showWallet(wallets.ethereum);"
+                                        data-toggle="modal"
+                                        angulartics2On="click"
+                                        angularticsAction="SendCoins"
+                                        angularticsLabel="send-eth">{{wallets.ethereum.address}}</a></span>
+  </div>
+</div>
+
+<div class="row text-center">
+  <div class="col">
+    <span>{{wallets.litecoin.linkText}}: <a href="#"
+                                        [attr.data-target]=" '#' + walletDetails.modalId"
+                                        (click)="walletDetails.showWallet(wallets.litecoin);"
+                                        data-toggle="modal"
+                                        angulartics2On="click"
+                                        angularticsAction="SendCoins"
+                                        angularticsLabel="send-ltc">{{wallets.litecoin.address}}</a></span>
+  </div>
+</div>
+<wallet-details #walletDetails></wallet-details>
+
+

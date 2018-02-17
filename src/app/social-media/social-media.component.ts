@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {SOCIAL_NETWORKS} from '../constants/const.social';
 
 @Component({
@@ -7,6 +7,7 @@ import {SOCIAL_NETWORKS} from '../constants/const.social';
   templateUrl: './social-media.component.html',
   styleUrls: ['./social-media.component.css']
 })
+
 export class SocialMediaComponent {
   shareToFacebook() {
     const facebookLink = SOCIAL_NETWORKS.facebook.fbUrl +
