@@ -80,7 +80,6 @@ export class AppService {
       .get<Market>(url, {params})
       .subscribe(
         data => {
-          console.log(data);
           this.totalMarketCap = data; // store returned data
           this.announceTotalMarketCap(); // trigger announcements
           // this.filterMarketCaps();
@@ -113,11 +112,20 @@ export class AppService {
     this.filteredCoinsSubject.next(this.filteredCoins);
   }
 
+  /**
+   * Update the array of filtered coins.
+   * this method is called by whenever filterChange() is triggered
+   *  - whenever a user selects a coin from the crypto coins selectbox.
+   *  - whenever filterChange() is called
+   *
+   * @param {number[]} filter
+   */
   updateFilter(filter: number[]) {
     this.filter = [];
     filter.forEach((elem) => {
       this.filter.push(elem);
     });
+
     this.filterMarketCaps();
   }
 }
