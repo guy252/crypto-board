@@ -27,4 +27,4 @@ export const WALLETS = {
     linkText: 'Donate DOGE',
     barcodeImg: ''
   }
-}
+};
