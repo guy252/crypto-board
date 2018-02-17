@@ -10,12 +10,6 @@
   },
   "main": "index.js",
   "scripts": {
-    //"ng": "ng",
-    //"start": "ng serve",
-    //"build": "ng build --prod",
-    //"test": "ng test",
-    //"lint": "ng lint",
-    //"e2e": "ng e2e"
     "start": "node main.js"
   },
   "private": true,
