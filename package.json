@@ -15,7 +15,12 @@
     "build": "ng build --prod",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "postinstall": "ng build --aot -prod"
+  },
+  "engines": {
+    "node": "6.11.0",
+    "npm": "3.10.10"
   },
   "private": true,
   "dependencies": {
@@ -41,7 +46,8 @@
     "reflect-metadata": "0.1.8",
     "rxjs": "^5.5.6",
     "systemjs": "0.19.40",
-    "zone.js": "^0.8.19"
+    "zone.js": "^0.8.19",
+    "typescript": "~2.5.3"
   },
   "devDependencies": {
     "@angular/cli": "1.6.8",
