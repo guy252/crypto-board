@@ -10,7 +10,7 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "node main.js"
+    "start": "node main.bundle.js"
   },
   "private": true,
   "dependencies": {
