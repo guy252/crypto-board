@@ -27,7 +27,7 @@ export class SearchFilterComponent implements OnInit {
   cryptoCurrOptions: IMultiSelectOption[];
   selectedCurrency: string;
   optionsModel: number[];
-  savedCoinsFilter = [];
+  savedCoinsFilter: IMultiSelectOption[] = []; // holds the selected IMultiSelectOption objects.  used for saving the selected coins to local storage
   dashboardItemsPinned = false;
 
   // Settings configuration for the multiselect plugin
@@ -69,24 +69,51 @@ export class SearchFilterComponent implements OnInit {
     });
   }
 
+
+  initFromLocalStorage(cryptoOptions) {
+    this.selectedCurrency = 'usd';
+    const pinnedDashboardItems: IMultiSelectOption[] = this.loadDashboard();
+
+    this.cryptoCurrOptions = cryptoOptions;
+
+    // if the user pinned some coins to the dashboard
+    if (pinnedDashboardItems && pinnedDashboardItems.length > 0) {
+      this.dashboardItemsPinned = true;
+
+      // we now need to create a new array with objects, based on the currency names in pinnedDashboardItems.
+      // we need this because the index (which is actually the currency rank, may have been changed)
+      const pinnedDashboardItemsWithUpdatedRank = this.cryptoCurrOptions.filter(function (selectboxOption) {
+        return pinnedDashboardItems.some(function (pinnedSelectboxOption) {
+          return pinnedSelectboxOption.params === selectboxOption.params;
+        });
+      });
+
+      // todo : replace  pinnedDashboardItems with pinnedDashboardItemsWithUpdatedRank
+      this.optionsModel = pinnedDashboardItems.map(option => {
+        return option.id;
+      });
+    }
+  }
+
   ngOnInit() {
     this.selectedCurrency = 'usd';
-
-    const pinnedDashboardItems: number[] = this.loadDashboard();
+    const pinnedDashboardItems: IMultiSelectOption[] = this.loadDashboard();
 
     if (pinnedDashboardItems && pinnedDashboardItems.length > 0) {
       this.dashboardItemsPinned = true;
-      this.optionsModel = pinnedDashboardItems;
+
+      // todo : replace  pinnedDashboardItems with pinnedDashboardItemsWithUpdatedRank
+      this.optionsModel = pinnedDashboardItems.map(option => {
+        return option.id;
+      });
     }
 
     /**
      * calling this method for the initial load of data, when the component is initialized.
      */
     this.selectCurrency('usd');
-
     /**
      * after the initial load, we set a timer that loads the data every (n) milliseconds
-     * TODO: check if that works when changing the selected currency from the ui.
      */
     const interval = setInterval(() => {
       this.appService.loadTotalMarketCap(this.selectedCurrency);
@@ -115,7 +142,21 @@ export class SearchFilterComponent implements OnInit {
     this.appService.loadCoinMarketCaps(newValue);
   }
 
-  filterChange(newValue) {
+  /**
+   * Updates the array of filtered coins.
+   * this method is called whenever a user selects a coin from the crypto coins selectbox.
+   */
+  filterChange(newValue: number[]) {
+    /**
+     * populate the savedCoinsFilter according to the selected options in the currencies selectbox
+     * take from cryptoCurrOptions, only the items that have the indexes inside newValue[]
+     * its updated here so we can later save it to the local storage.
+     * we are using the newValue array which only hold indexes, and find the corresponding option objects in this.cryptoCurrOptions
+     */
+    this.savedCoinsFilter = this.cryptoCurrOptions.filter(function (item) {
+      return newValue.indexOf(item.id) !== -1;
+    });
+
     // BUG method should not be triggered by filter select
     this.appService.updateFilter(newValue);
 
@@ -131,18 +172,31 @@ export class SearchFilterComponent implements OnInit {
   updateCryptoOptions(coins) {
     this.cryptoCurrOptions = [];
     coins.forEach((coin, index) => {
+      // this.cryptoCurrOptions.push({
+      //   id: index,
+      //   name: coin.id.charAt(0).toUpperCase() + coin.id.slice(1)
+      // });
+
       this.cryptoCurrOptions.push({
         id: index,
-        name: coin.id.charAt(0).toUpperCase() + coin.id.slice(1)
+        name: coin.id.charAt(0).toUpperCase() + coin.id.slice(1),
+        params: coin.id
       });
     });
+
+    /**
+     * init required params from local storage
+     * very strange but when accessing this.cryptoCurrOptions, from initFromLocalStorage, we get an empty array.
+     * this is the reason we are passing it as a parameter
+     */
+    this.initFromLocalStorage(this.cryptoCurrOptions);
   }
 
   saveDashboard() {
     if (!this.localStorageService.isStorageAvailable()) {
       this.toastr.warning(MESSAGES.LOCAL_STORAGE_CANT_PIN, MESSAGES.TITLE_NOTE);
     } else {
-      this.localStorageService.store(globalConstants.LOCAL_STORAGE_KEY, this.optionsModel);
+      this.localStorageService.store(globalConstants.LOCAL_STORAGE_KEY, this.savedCoinsFilter);
     }
   }
 
@@ -157,7 +211,7 @@ export class SearchFilterComponent implements OnInit {
       this.toastr.warning(MESSAGES.LOCAL_STORAGE_NOT_SUPPORTED, MESSAGES.TITLE_NOTE);
     } else {
       this.localStorageService.clear(globalConstants.LOCAL_STORAGE_KEY);
-      this.savedCoinsFilter = [];
+      // this.savedCoinsFilter = [];
     }
   }
 }
