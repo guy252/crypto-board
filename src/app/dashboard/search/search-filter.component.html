@@ -14,15 +14,22 @@
     <div class="form-group">
       <ss-multiselect-dropdown id="cryptocurrencies"
                                name="cryptocurrencies" [texts]="myTexts" [settings]="mySettings"
-                               [options]="cryptoCurrOptions" [(ngModel)]="optionsModel"
+                               [options]="cryptoCurrOptions" [ngModel]="optionsModel"
                                (ngModelChange)="filterChange($event)">
       </ss-multiselect-dropdown>
     </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="form-group">
+      <button type="button" class="btn btn-info btn-pin" (click)="savedClicked()"  title="save">
+        <i class='fas fa-save' style="color: #3f515a;"></i>
+      </button>
+    </div>
 
-    <!--<div class="form-group">-->
-      <!--<button type="button" (click)="changeDashboardItemsPinnedStatus()" class="btn btn-info btn-pin" title="{{messages.TOOLTIP_PIN_BUTTON}}">-->
-        <!--<i [ngClass]="dashboardItemsPinned ? 'fa fa-thumbtack' : 'fa fa-thumbtack fa-rotate-45'"></i>-->
-      <!--</button>-->
-    <!--</div>-->
+    <div class="form-group">
+      <button type="button" class="btn btn-info btn-pin" (click)="clearClicked()"  title="clear">
+        <i class='fas fa-eraser' style="color: #3f515a;"></i>
+      </button>
+    </div>
   </div>
 </div>

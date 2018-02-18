@@ -12,6 +12,7 @@ import {MESSAGES} from '../../constants/const.messages';
 
 // services
 import {AppService} from '../../app.service';
+import {forEach} from '@angular/router/src/utils/collection';
 
 @Component({
   moduleId: module.id,
@@ -27,8 +28,7 @@ export class SearchFilterComponent implements OnInit {
   cryptoCurrOptions: IMultiSelectOption[];
   selectedCurrency: string;
   optionsModel: number[];
-  savedCoinsFilter: IMultiSelectOption[] = []; // holds the selected IMultiSelectOption objects.  used for saving the selected coins to local storage
-  dashboardItemsPinned = false;
+  savedCoinsFilter: IMultiSelectOption[] = []; // used for saving the selected coins to local storage
 
   // Settings configuration for the multiselect plugin
   mySettings: IMultiSelectSettings = {
@@ -78,20 +78,34 @@ export class SearchFilterComponent implements OnInit {
 
     // if the user pinned some coins to the dashboard
     if (pinnedDashboardItems && pinnedDashboardItems.length > 0) {
-      this.dashboardItemsPinned = true;
 
       // we now need to create a new array with objects, based on the currency names in pinnedDashboardItems.
       // we need this because the index (which is actually the currency rank, may have been changed)
-      const pinnedDashboardItemsWithUpdatedRank = this.cryptoCurrOptions.filter(function (selectboxOption) {
-        return pinnedDashboardItems.some(function (pinnedSelectboxOption) {
-          return pinnedSelectboxOption.params === selectboxOption.params;
+      // const pinnedDashboardItemsWithUpdatedRank = cryptoOptions.filter(function (selectboxOption) {
+      //   return pinnedDashboardItems.some(function (pinnedSelectboxOption) {
+      //     return pinnedSelectboxOption.params === selectboxOption.params ;
+      //   });
+      // });
+
+
+      let updatedOptions = [];
+
+      pinnedDashboardItems.forEach((option) => {
+        cryptoOptions.forEach((updatedOption) => {
+          if (updatedOption.params === option.params) {
+            updatedOptions.push(updatedOption);
+          }
         });
       });
 
-      // todo : replace  pinnedDashboardItems with pinnedDashboardItemsWithUpdatedRank
-      this.optionsModel = pinnedDashboardItems.map(option => {
+      this.optionsModel = updatedOptions.map(option => {
         return option.id;
       });
+
+      // console.log('cryptoOptions', cryptoOptions);
+      // console.log('pinnedDashboardItems', pinnedDashboardItems);
+      // console.log('updatedOptions', updatedOptions);
+      // console.log('this.optionsModel', this.optionsModel);
     }
   }
 
@@ -100,7 +114,6 @@ export class SearchFilterComponent implements OnInit {
     const pinnedDashboardItems: IMultiSelectOption[] = this.loadDashboard();
 
     if (pinnedDashboardItems && pinnedDashboardItems.length > 0) {
-      this.dashboardItemsPinned = true;
 
       // todo : replace  pinnedDashboardItems with pinnedDashboardItemsWithUpdatedRank
       this.optionsModel = pinnedDashboardItems.map(option => {
@@ -119,22 +132,6 @@ export class SearchFilterComponent implements OnInit {
       this.appService.loadTotalMarketCap(this.selectedCurrency);
       this.appService.loadCoinMarketCaps(this.selectedCurrency);
     }, 2 * 60 * 1000);
-  }
-
-  /**
-   * This method handles the aspects of pinning or un-pinning the selected cryptos to the dashboard.
-   * Called when the user clicks the pin icon in the ui
-   */
-  changeDashboardItemsPinnedStatus() {
-    this.dashboardItemsPinned = !this.dashboardItemsPinned;
-
-    if (this.dashboardItemsPinned) {
-      this.saveDashboard();
-      this.toastr.success(MESSAGES.COINS_PINNED, MESSAGES.TITLE_SUCCESS);
-    } else {
-      this.clearDashboard();
-      this.toastr.success(MESSAGES.COINS_UNPINNED, MESSAGES.TITLE_SUCCESS);
-    }
   }
 
   selectCurrency(newValue) {
@@ -159,24 +156,12 @@ export class SearchFilterComponent implements OnInit {
 
     // BUG method should not be triggered by filter select
     this.appService.updateFilter(newValue);
-
-    /**
-     * if the user decided to pin items to the dashboard, we need to save them every time the filter changes
-     */
-    if (this.dashboardItemsPinned) {
-      this.saveDashboard();
-    }
   }
 
   // This method creates an array of valid options for the multiselect plugin from an array of crypto coins
   updateCryptoOptions(coins) {
     this.cryptoCurrOptions = [];
     coins.forEach((coin, index) => {
-      // this.cryptoCurrOptions.push({
-      //   id: index,
-      //   name: coin.id.charAt(0).toUpperCase() + coin.id.slice(1)
-      // });
-
       this.cryptoCurrOptions.push({
         id: index,
         name: coin.id.charAt(0).toUpperCase() + coin.id.slice(1),
@@ -190,6 +175,17 @@ export class SearchFilterComponent implements OnInit {
      * this is the reason we are passing it as a parameter
      */
     this.initFromLocalStorage(this.cryptoCurrOptions);
+  }
+
+
+  savedClicked() {
+    this.saveDashboard();
+    this.toastr.success(MESSAGES.COINS_PINNED, MESSAGES.TITLE_SUCCESS);
+  }
+
+  clearClicked() {
+    this.clearDashboard();
+    this.toastr.success(MESSAGES.COINS_UNPINNED, MESSAGES.TITLE_SUCCESS);
   }
 
   saveDashboard() {

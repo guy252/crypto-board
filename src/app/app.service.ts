@@ -16,7 +16,6 @@ export class AppService {
   private allCoins: Coin[]; // will hold unmodified data returned by the api
   private filteredCoins: Coin[]; // will hold data filtered from this.allCoins
   private filter: number[]; // will hold the array index of data contained in this. allCoins that should not be filtered out
-
   // A couple of RxJs Subjects very important for communicating across Angular Components
   totalMarketCapSubject: Subject<Market>;
   coinsSubject: Subject<Coin[]>;
@@ -54,7 +53,7 @@ export class AppService {
       .get<Coin[]>(url, {params})
       .subscribe(
         data => {
-          console.log(data);
+          console.log('Coins', data);
           this.allCoins = data; // store returned data
           this.announceCoins(); // trigger announcements
           this.filterMarketCaps();
@@ -121,6 +120,7 @@ export class AppService {
    * @param {number[]} filter
    */
   updateFilter(filter: number[]) {
+    console.log('updateFilter - filter values', filter);
     this.filter = [];
     filter.forEach((elem) => {
       this.filter.push(elem);
