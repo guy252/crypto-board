@@ -53,7 +53,7 @@ export class AppService {
       .get<Coin[]>(url, {params})
       .subscribe(
         data => {
-          console.log('Coins', data);
+          console.log('Fetched Coins', data);
           this.allCoins = data; // store returned data
           this.announceCoins(); // trigger announcements
           this.filterMarketCaps();
@@ -120,7 +120,7 @@ export class AppService {
    * @param {number[]} filter
    */
   updateFilter(filter: number[]) {
-    console.log('updateFilter - filter values', filter);
+    // console.log('updateFilter - filter values', filter);
     this.filter = [];
     filter.forEach((elem) => {
       this.filter.push(elem);

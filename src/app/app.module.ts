@@ -21,6 +21,7 @@ import {FooterComponent} from './footer/footer.component';
 import {SocialMediaComponent} from './social-media/social-media.component';
 import {WalletsComponent} from './wallets/wallets.component';
 import {WalletDetailsComponent} from './wallets/wallet-details/wallet-details.component';
+import { TermsComponent } from './terms/terms.component';
 
 
 @NgModule({
@@ -40,7 +41,8 @@ import {WalletDetailsComponent} from './wallets/wallet-details/wallet-details.co
     FooterComponent,
     SocialMediaComponent,
     WalletsComponent,
-    WalletDetailsComponent
+    WalletDetailsComponent,
+    TermsComponent
   ],
   bootstrap: [AppComponent]
 })

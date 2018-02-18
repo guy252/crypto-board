@@ -19,17 +19,22 @@
       </ss-multiselect-dropdown>
     </div>
   </div>
-  <div class="row justify-content-center">
-    <div class="form-group">
-      <button type="button" class="btn btn-info btn-pin" (click)="savedClicked()"  title="save">
+
+  <div class="row justify-content-center save-buttons">
+    <div class="form-group mb-1">
+      <button type="button" class="btn btn-info btn-pin" (click)="savedClicked()" title="save">
         <i class='fas fa-save' style="color: #3f515a;"></i>
       </button>
     </div>
 
-    <div class="form-group">
-      <button type="button" class="btn btn-info btn-pin" (click)="clearClicked()"  title="clear">
+    <div class="form-group mb-1">
+      <button type="button" class="btn btn-info btn-pin" (click)="clearClicked()" title="clear">
         <i class='fas fa-eraser' style="color: #3f515a;"></i>
       </button>
     </div>
+
+    <!--<div class="form-group mb-1">-->
+      <!--<i class='fas fa-info-circle' style="color: #3f515a;"></i>-->
+    <!--</div>-->
   </div>
 </div>

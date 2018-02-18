@@ -28,6 +28,10 @@
 
 }
 
+.save-buttons {
+
+}
+
 .btn-pin {
   margin-top: 0.1rem;
   border: none;
@@ -49,29 +53,13 @@
   font-size: 2rem;
 }
 
-/*.fa-thumbtack:hover,*/
-/*.fa-thumbtack:disabled,*/
-/*.fa-thumbtack:active{*/
-/*color: #fff;*/
-/*}*/
-
-/*.unpinned{*/
-/*transform: rotate(20deg);*/
-/*}*/
-
-/*.unpinned:hover,*/
-/*.unpinned:disabled,*/
-/*.unpinned:active{*/
-/*color: #fff;*/
-/*}*/
-
 @media screen and (min-device-width: 320px) and (max-device-width: 740px) {
   .container {
     padding-bottom: 0;
   }
 
   .form-group {
-    padding-bottom: 0;
+    padding-bottom: 0.5rem;
   }
 
   .btn-pin {
