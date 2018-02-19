@@ -8,6 +8,7 @@ import * as cmcConstants from './constants/const.cmc';
 // Import model objects
 import {Coin} from './model/coin';
 import {Market} from './model/market';
+import {forEach} from '@angular/router/src/utils/collection';
 
 
 @Injectable()
@@ -15,7 +16,8 @@ export class AppService {
   private totalMarketCap: Market;
   private allCoins: Coin[]; // will hold unmodified data returned by the api
   private filteredCoins: Coin[]; // will hold data filtered from this.allCoins
-  private filter: number[]; // will hold the array index of data contained in this. allCoins that should not be filtered out
+  private filter: any[]; // will hold the array index of data contained in this. allCoins that should not be filtered out
+
   // A couple of RxJs Subjects very important for communicating across Angular Components
   totalMarketCapSubject: Subject<Market>;
   coinsSubject: Subject<Coin[]>;
@@ -54,6 +56,7 @@ export class AppService {
       .subscribe(
         data => {
           console.log('Fetched Coins', data);
+
           this.allCoins = data; // store returned data
           this.announceCoins(); // trigger announcements
           this.filterMarketCaps();
@@ -88,14 +91,25 @@ export class AppService {
 
   filterMarketCaps() {
     this.filteredCoins = [];
+
     if (this.filter.length === 0) {
-      this.allCoins.forEach((coin) => this.filteredCoins.push(coin));
-    }
-    if (this.filter.length > 0) {
-      this.filter.forEach((i) => {
-        this.filteredCoins.push(this.allCoins[i]);
+      this.allCoins.forEach((coin) => {
+        this.filteredCoins.push(coin);
       });
     }
+
+    if (this.filter.length > 0) {
+      this.filter.forEach((item, index) => {
+        const coin: Coin = this.allCoins.find(c => c.id === item);
+
+        if (coin) {
+          this.filteredCoins.push(coin);
+        } else {
+          console.log('Could not properly initialize filter. Coin ID: ' + item + ' probably doesnt exist on the response.');
+        }
+      });
+    }
+
     this.announceFilteredCoins();
   }
 
@@ -113,14 +127,15 @@ export class AppService {
 
   /**
    * Update the array of filtered coins.
-   * this method is called by whenever filterChange() is triggered
+   * this method is called -
    *  - whenever a user selects a coin from the crypto coins selectbox.
-   *  - whenever filterChange() is called
+   *  - whenever filterChange() is triggered
    *
-   * @param {number[]} filter
+   * @param {any[]} filter
    */
-  updateFilter(filter: number[]) {
+  updateFilter(filter: any[]) {
     // console.log('updateFilter - filter values', filter);
+
     this.filter = [];
     filter.forEach((elem) => {
       this.filter.push(elem);

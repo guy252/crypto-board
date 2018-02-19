@@ -27,7 +27,7 @@ export class SearchFilterComponent implements OnInit {
   currencies: string[];
   cryptoCurrOptions: IMultiSelectOption[];
   selectedCurrency: string;
-  optionsModel: number[];
+  optionsModel: any[];
   savedCoinsFilter: IMultiSelectOption[] = []; // used for saving the selected coins to local storage
 
   // Settings configuration for the multiselect plugin
@@ -60,7 +60,7 @@ export class SearchFilterComponent implements OnInit {
     this.currencies = ['usd', 'eur', 'gbp']; // fiat currency options
     this.selectedCurrency = ''; // model to store selected fiat
 
-    // array to hold names of cryptos to be used in filtering
+    // array to hold IMultiSelectOption objects to be used in filtering
     this.cryptoCurrOptions = [];
 
     // coinsSubject is a RxJs subject in our service that will notify us when the api has gotten data about crypto coins
@@ -69,53 +69,11 @@ export class SearchFilterComponent implements OnInit {
     });
   }
 
-
-  initFromLocalStorage(cryptoOptions) {
-    this.selectedCurrency = 'usd';
-    const pinnedDashboardItems: IMultiSelectOption[] = this.loadDashboard();
-
-    this.cryptoCurrOptions = cryptoOptions;
-
-    // if the user pinned some coins to the dashboard
-    if (pinnedDashboardItems && pinnedDashboardItems.length > 0) {
-
-      // we now need to create a new array with objects, based on the currency names in pinnedDashboardItems.
-      // we need this because the index (which is actually the currency rank, may have been changed)
-      // const pinnedDashboardItemsWithUpdatedRank = cryptoOptions.filter(function (selectboxOption) {
-      //   return pinnedDashboardItems.some(function (pinnedSelectboxOption) {
-      //     return pinnedSelectboxOption.params === selectboxOption.params ;
-      //   });
-      // });
-
-
-      let updatedOptions = [];
-
-      pinnedDashboardItems.forEach((option) => {
-        cryptoOptions.forEach((updatedOption) => {
-          if (updatedOption.params === option.params) {
-            updatedOptions.push(updatedOption);
-          }
-        });
-      });
-
-      this.optionsModel = updatedOptions.map(option => {
-        return option.id;
-      });
-
-      // console.log('cryptoOptions', cryptoOptions);
-      // console.log('pinnedDashboardItems', pinnedDashboardItems);
-      // console.log('updatedOptions', updatedOptions);
-      // console.log('this.optionsModel', this.optionsModel);
-    }
-  }
-
   ngOnInit() {
     this.selectedCurrency = 'usd';
     const pinnedDashboardItems: IMultiSelectOption[] = this.loadDashboard();
 
     if (pinnedDashboardItems && pinnedDashboardItems.length > 0) {
-
-      // todo : replace  pinnedDashboardItems with pinnedDashboardItemsWithUpdatedRank
       this.optionsModel = pinnedDashboardItems.map(option => {
         return option.id;
       });
@@ -141,9 +99,12 @@ export class SearchFilterComponent implements OnInit {
 
   /**
    * Updates the array of filtered coins.
-   * this method is called whenever a user selects a coin from the crypto coins selectbox.
+   * this method is called
+   *  - whenever a user selects a coin from the crypto coins selectbox.
+   *  - when the selectbox data is changed
    */
-  filterChange(newValue: number[]) {
+  filterChange(newValue: any[]) {
+    console.log('filterChange: ', newValue);
     /**
      * populate the savedCoinsFilter according to the selected options in the currencies selectbox
      * take from cryptoCurrOptions, only the items that have the indexes inside newValue[]
@@ -161,20 +122,15 @@ export class SearchFilterComponent implements OnInit {
   // This method creates an array of valid options for the multiselect plugin from an array of crypto coins
   updateCryptoOptions(coins) {
     this.cryptoCurrOptions = [];
+
     coins.forEach((coin, index) => {
       this.cryptoCurrOptions.push({
-        id: index,
-        name: coin.id.charAt(0).toUpperCase() + coin.id.slice(1),
-        params: coin.id
+        id: coin.id,
+        name: coin.name
       });
     });
 
-    /**
-     * init required params from local storage
-     * very strange but when accessing this.cryptoCurrOptions, from initFromLocalStorage, we get an empty array.
-     * this is the reason we are passing it as a parameter
-     */
-    this.initFromLocalStorage(this.cryptoCurrOptions);
+    // console.log('cryptoCurrOptions', this.cryptoCurrOptions)
   }
 
 
