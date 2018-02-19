@@ -27,8 +27,9 @@ export class SearchFilterComponent implements OnInit {
   currencies: string[];
   cryptoCurrOptions: IMultiSelectOption[];
   selectedCurrency: string;
-  optionsModel: any[];
-  savedCoinsFilter: IMultiSelectOption[] = []; // used for saving the selected coins to local storage
+  optionsModel: any[]; // holds values from the crypto coins selectbox ('bitcoin', 'ethereum', 'ripple')
+  savedCoinsFilter: IMultiSelectOption[] = []; // hold the currently selected coins (in IMultiSelectOption format) so we can save them to the local storage.
+  dashboardItemsPinned = false;
 
   // Settings configuration for the multiselect plugin
   mySettings: IMultiSelectSettings = {
@@ -74,6 +75,8 @@ export class SearchFilterComponent implements OnInit {
     const pinnedDashboardItems: IMultiSelectOption[] = this.loadDashboard();
 
     if (pinnedDashboardItems && pinnedDashboardItems.length > 0) {
+      this.dashboardItemsPinned = true;
+
       this.optionsModel = pinnedDashboardItems.map(option => {
         return option.id;
       });
@@ -115,6 +118,10 @@ export class SearchFilterComponent implements OnInit {
       return newValue.indexOf(item.id) !== -1;
     });
 
+    if (this.dashboardItemsPinned) {
+      this.saveDashboard();
+    }
+
     // BUG method should not be triggered by filter select
     this.appService.updateFilter(newValue);
   }
@@ -129,10 +136,23 @@ export class SearchFilterComponent implements OnInit {
         name: coin.name
       });
     });
-
-    // console.log('cryptoCurrOptions', this.cryptoCurrOptions)
   }
 
+  changeDashboardItemsPinnedStatus() {
+    this.dashboardItemsPinned = !this.dashboardItemsPinned;
+
+    if (this.dashboardItemsPinned) {
+      this.saveDashboard();
+
+      this.toastr.success(MESSAGES.COINS_PINNED, MESSAGES.TITLE_SUCCESS);
+    } else {
+      this.optionsModel = [];
+      this.filterChange([]);
+      this.clearDashboard();
+
+      this.toastr.success(MESSAGES.COINS_UNPINNED, MESSAGES.TITLE_SUCCESS);
+    }
+  }
 
   savedClicked() {
     this.saveDashboard();

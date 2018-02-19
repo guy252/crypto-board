@@ -53,6 +53,11 @@
   font-size: 2rem;
 }
 
+.fa-thumbtack{
+  color: #34434b;
+  font-size: 2rem;
+}
+
 @media screen and (min-device-width: 320px) and (max-device-width: 740px) {
   .container {
     padding-bottom: 0;
@@ -70,5 +75,9 @@
   .fa-eraser {
     color: #34434b;
     font-size: 2rem;
+  }
+
+  .fa-thumbtack{
+    font-size: 1.9rem;
   }
 }
